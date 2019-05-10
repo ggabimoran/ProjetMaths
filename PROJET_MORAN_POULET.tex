@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{exam}
 \usepackage[utf8]{inputenc}
 \usepackage{systeme,mathtools}
 \usepackage{amssymb,amsmath,amsthm}
@@ -7,35 +7,48 @@
 \usepackage{systeme}
 \begin{document}
 
-\textbf{8)} Le système à la date $t_N$ vaut :
-
-
+8) Le système à la date $t_N$ vaut :
+\newline
+\vspace{0.5cm}
 $\alpha_{N-1}(S_{t_{N-1}}^{(N)})(1 + h_N)S_{t_{N-1}}^{(N)} + \beta_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+h_N)S_{t_{N-1}}^{(N)})$ \hspace{1cm} [1]
-
+\newline
+\vspace{0.5cm}
 $\alpha_{N-1}(S_{t_{N-1}}^{(N)})(1+b_N)S_{t_{N-1}}^{(N)} + \beta_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+b_N)S_{t_{N-1}}^{(N)})$ \hspace{1cm} [2]
-
-
-[1]-[2] donne :
-
+\newline
+\vspace{0.5cm}
+$[1]-[2]$ donne :
+\newline
+\vspace{0.5cm}
 $\alpha_{N-1}(S_{t_{N-1}}^{(N)})=\frac{f((1+h_N)S_{t_{N-1}}^{(N)})-f((1+b_N)S_{t_{N-1}}^{(N)})}{(h_N-b_N)S_{t_{N-1}}^{(N)}}$
-
-
-En substituant cette expression dans l'équation [1] par exemple, on obtient, après calculs :
-
-$\beta_{N-1}(S_{t_{N-1}}^{(N)})=\frac{1}{S_{t_N}^0(h_N-b_N)}(f((1+b_N)S_{t_{N-1}}^{(N)}(1+h_N)-f((1+h_N)S_{t_{N-1}}^{(N)}(1+b_N))$
-
-
-\textbf{9)} Le système à la date $t_k$ vaut :
-
-$\alpha_{k-1}(S_{t_{k-1}}^{(N)})(1 + h_N)S_{t_{k-1}} + \beta_{k-1}(S_{t_{k-1}}^{(N)})S_{t_k}^{0} = f((1+h_N)S_{t_{k-1}}^{(N)})$ \hspace{1cm} [1]
-
-$\alpha_{k-1}(S_{t_{k-1}}^{(N)})(1+b_N)S_{t_{k-1}} + \beta_{k-1}(S_{t_{k-1}}^{(N)})S_{t_k}^{0} = f((1+b_N)S_{t_{k-1}}^{(N)})$ \hspace{1cm} [2]
 \newline
-Ce qui donne, par un raisonnement analogue : \newline
-$\alpha_{k-1}(S_{t_{k-1}}^{(N)})=\frac{f((1+h_N)S_{t_{k-1}}^{(N)})-f((1+b_N)S_{t_{k-1}}^{(N)})}{(h_N-b_N)S_{t_{k-1}}^{(N)}}$
+\vspace{0.5cm}
+$(1+h_N)[1]-(1+b_N)[2]$ donne:
 \newline
-$\beta_{k-1}(S_{t_{k-1}}^{(N)})=\frac{1}{S_{t_k}^0(h_N-b_N)}(f((1+b_N)S_{t_{k-1}}^{(N)}(1+h_N)-f((1+h_N)S_{t_{k-1}}^{(N)}(1+b_N))$
-
+\vspace{0.5cm}
+$\beta_{N-1}(S_{t_{N-1}}^{(N)})=\frac{1}{S_{t_N}^0(h_N-b_N)}(f((1+b_N)S_{t_{N-1}}^{(N)})(1+h_N)-f((1+h_N)S_{t_{N-1}}^{(N)})(1+b_N))$
+\newline
+\vspace{0.5cm}
+9) Le système à la date $t_k$ vaut :
+\newline
+\vspace{0.5cm}
+$\alpha_{k-1}(S_{t_{k-1}}^{(N)})(1 + h_N)S_{t_{k-1}} + \beta_{k-1}(S_{t_{k-1}}^{(N)})S_{t_k}^{0} = v_k((1+h_N)S_{t_{k-1}}^{(N)})$ \hspace{1cm} [1]
+\newline
+\vspace{0.5cm}
+$\alpha_{k-1}(S_{t_{k-1}}^{(N)})(1+b_N)S_{t_{k-1}} + \beta_{k-1}(S_{t_{k-1}}^{(N)})S_{t_k}^{0} = v_k((1+b_N)S_{t_{k-1}}^{(N)})$ \hspace{1cm} [2]
+\newline
+\vspace{0.5cm}
+Ce qui donne, par un raisonnement analogue : 
+\newline
+\vspace{0.5cm}
+$\alpha_{k-1}(S_{t_{k-1}}^{(N)})=\frac{v_k((1+h_N)S_{t_{k-1}}^{(N)})-v_k((1+b_N)S_{t_{k-1}}^{(N)})}{(h_N-b_N)S_{t_{k-1}}^{(N)}}$
+\newline
+\vspace{0.5cm}
+$\beta_{k-1}(S_{t_{k-1}}^{(N)})=\frac{1}{S_{t_k}^0(h_N-b_N)}(v_k((1+b_N)S_{t_{k-1}}^{(N)}(1+h_N)-v_k((1+h_N)S_{t_{k-1}}^{(N)}(1+b_N))$
+\newline
+\vspace{0.5cm}
+10) Voir python.
+\newline
+\vspace{0.5cm}
 
 
 \end{document}
