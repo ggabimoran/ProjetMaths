@@ -56,6 +56,9 @@ plt.ylabel('Prix')
 plt.show()
 
 #Question 8#
+#Question 9#
+#Question 10#
+
 
 
 
