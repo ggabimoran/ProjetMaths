@@ -1,6 +1,36 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{systeme,mathtools}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[francais]{babel}
+\usepackage{fontspec}
+\usepackage{systeme}
 \begin{document}
 
+\textbf{8)} Le système à la date $t_N$ vaut :
+
+
+\systeme*{a_{N-1}(S_{t_{N-1}}^{(N)})(1 + h_N)S_{t_{N-1}} + B_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+h_N)S_{t_{N-1}}^{(N)}),a_{N-1}(S_{t_{N-1}}^{(N)})(1+b_N)S_{t_{N-1}} + B_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+b_N)S_{t_{N-1}}^{(N)})}
+
+$\alpha_{N-1}(S_{t_{N-1}}^{(N)})(1 + h_N)S_{t_{N-1}} + \beta_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+h_N)S_{t_{N-1}}^{(N)})$ \hspace{1cm} [1]
+
+$\alpha_{N-1}(S_{t_{N-1}}^{(N)})(1+b_N)S_{t_{N-1}} + \beta_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+b_N)S_{t_{N-1}}^{(N)})$ \hspace{1cm} [2]
+
+
+[1]-[2] donne :
+
+$\alpha_{N-1}(S_{t_{N-1}}^{(N)})=\frac{f((1+h_N)S_{t_{N-1}}^{(N)})-f((1+b_N)S_{t_{N-1}}^{(N)})}{(h_N-b_N)S_{t_{N-1}}}$
+
+
+\En substituant cette expression dans l'équation [1] par exemple, on obtient, après calculs :
+
+$\beta_{N-1}(S_{t_{N-1}}^{(N)})=\frac{1}{S_{t_N}^0(h_N-b_N)}(f((1+b_N)S_{t_{N-1}}^{(N)}(1+h_N)-f((1+h_N)S_{t_{N-1}}^{(N)}(1+b_N))$
+
+
+\textbf{9)} Le système à la date $t_k$ vaut :
+
+$\alpha_{N-1}(S_{t_{N-1}}^{(N)})(1 + h_N)S_{t_{N-1}} + \beta_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+h_N)S_{t_{N-1}}^{(N)})$ \hspace{1cm} [1]
+
+$\alpha_{N-1}(S_{t_{N-1}}^{(N)})(1+b_N)S_{t_{N-1}} + \beta_{N-1}(S_{t_{N-1}}^{(N)})S_{t_N}^{0} = f((1+b_N)S_{t_{N-1}}^{(N)})$ \hspace{1cm} [2]
 
 \end{document}
