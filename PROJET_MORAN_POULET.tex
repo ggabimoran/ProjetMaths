@@ -6,6 +6,7 @@
 \usepackage{fontspec}
 \usepackage{systeme}
 \begin{document}
+\newcommand{\espace}{\vspace{0.5cm}}
 
 8) Le système à la date $t_N$ vaut :
 \newline
@@ -28,7 +29,7 @@ $(1+h_N)[1]-(1+b_N)[2]$ donne:
 $\beta_{N-1}(S_{t_{N-1}}^{(N)})=\frac{1}{S_{t_N}^0(h_N-b_N)}(f((1+b_N)S_{t_{N-1}}^{(N)})(1+h_N)-f((1+h_N)S_{t_{N-1}}^{(N)})(1+b_N))$
 \newline
 \vspace{0.5cm}
-9) Le système à la date $t_k$ vaut :
+9) Le système pour les autres dates $t_k$ vaut :
 \newline
 \vspace{0.5cm}
 $\alpha_{k-1}(S_{t_{k-1}}^{(N)})(1 + h_N)S_{t_{k-1}} + \beta_{k-1}(S_{t_{k-1}}^{(N)})S_{t_k}^{0} = v_k((1+h_N)S_{t_{k-1}}^{(N)})$ \hspace{1cm} [1]
@@ -46,9 +47,64 @@ $\alpha_{k-1}(S_{t_{k-1}}^{(N)})=\frac{v_k((1+h_N)S_{t_{k-1}}^{(N)})-v_k((1+b_N)
 $\beta_{k-1}(S_{t_{k-1}}^{(N)})=\frac{1}{S_{t_k}^0(h_N-b_N)}(v_k((1+b_N)S_{t_{k-1}}^{(N)}(1+h_N)-v_k((1+h_N)S_{t_{k-1}}^{(N)}(1+b_N))$
 \newline
 \vspace{0.5cm}
-10) Voir python.
+10) 
 \newline
 \vspace{0.5cm}
+11) En appliquant la formule d'Ito à $ln (S_t)$, on obtient :
+\newline
+\espace
+$dln(S_t)=\frac{1}{S_t}dS_t + \frac{1}{2}(\sigma S_t)^{2}(-\frac{1}{S_t^{2}})dt$  
+\newline
+\espace
+\Longleftrightarrow \hspace{0.5cm} $dln(S_t)=(r dt + \sigma dB_t)-\frac{\sigma^{2}}{2} dt$ \hspace{0.5cm} car \hspace{0.5cm} $dS_t=S_t(rdt + \sigma dB_t)$
+\newline
+\espace
+\Longleftrightarrow \hspace{0.5cm} $dln(S_t)=(r-\frac{\sigma^2}{2})dt + \sigma dB_t$
+\newline
+\espace
+\Longleftrightarrow \hspace{0.5cm} $lnS_t - lns$ = $(r-\frac{\sigma^2}{2})t + \sigma B_t$ \hspace{0.5cm} car $B_0=0$
+\newline
+\espace
+Soit au final:
+\newline
+\espace
+$$\boxed{S_t=s \exp{(\sigma B_t + (r-\frac{\sigma^2}{2})t)}}$$
+\newline
+\espace
+12)
+\newline
+\espace
+13)
+\newline
+\espace
+14) Posons pour $1 \leq i \leq n, X_i = e^{-rT}f(s \exp ((r-\frac{\sigma^2}{2})T + \sigma \sqrt{T} \epsilon_i)$. Pour montrer que la suite $(\hat{p}_{(n)})_{n \in \mathbb{N}}$ converge presque sûrement vers $p$, il suffit de montrer que E[$X_0$]=$p$. En effet, les $(\epsilon_i)_{1 \leq i \leq n}$ étant indépendantes et identiquement distribuées, il en de même pour les $(X_i)_{1 \leq i \leq n}$. E[$X_0$]=$p < +\infty$ permet de conclure, d'après la loi forte des grands nombres, que la suite $(\hat{p}_{(n)})_{n \in \mathbb{N}}$ converge presque sûrement vers $p$. 
+
+Or d'après les propriétés 1 et 2 du mouvement brownien énoncées dans le sujet, on sait que $B_t \sim N(0,t)$, donc que $\frac{B_t}{\sqrt{t}} \sim N(0,1)$. On en déduit qu'il existe $\varepsilon^{'} \sim N(0,1)$ tel que pour tout T, on a $B_T = \sqrt{T}\varepsilon^{'}$. $\varepsilon^{'}$ et les $(\epsilon_i)_{1 \leq i \leq n}$ étant de même loi, on en déduit que  E[$X_0$]=$p$.
+\newline
+\espace
+15)
+\newline
+\espace
+16)
+\newline
+\espace
+17)
+\newline
+\espace
+18)
+\newline
+\espace
+19)
+\newline
+\espace
+20)
+
+
+
+
+
+
+
 
 
 \end{document}
