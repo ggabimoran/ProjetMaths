@@ -2,12 +2,55 @@
 \usepackage[utf8]{inputenc}
 \usepackage{systeme,mathtools}
 \usepackage{amssymb,amsmath,amsthm}
+\usepackage{bbm}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \usepackage[francais]{babel}
 \usepackage{fontspec}
 \usepackage{systeme}
 \begin{document}
 \newcommand{\espace}{\vspace{0.5cm}}
+\newcommand{\increment}{\hspace{0.5cm}}
 
+1) Soit $\mathbb{Q}$ une probabilité telle que sous cette probabilité on a $E_{\mathbb{Q}}[T_1^{(N)}] = 1 + r_N$. Ainsi : 
+\newline
+\espace
+$E_{\mathbb{Q}}[T_1^{(N)}] = 1 + r_N=\underset{x \in \{1+h_N,1+b_N\}}{\sum} x \mathbb{Q}(T_1^{(N)}=x)=(1+h_N)q_N + (1+b_N)(1-q_N)$
+\newline
+\espace
+Ainsi, on obtient :
+$$\boxed{q_N = \frac{r_N - b_N}{h_N - b_N}}$$
+
+On remarque que l'on a bien $q_N \in [0,1]$.
+\newline
+\espace
+2) Déterminons le prix de l'option $p_{(N)}$ de l'option qui paye $f(S_{t_N}^{(N)})$.
+
+Pour $i \in \{1,..,N\}$, posons $X_i=\mathbbm{1}_{T_i^{(N)}=1+h_N}$. Il est facile de montrer que $X_i$ suit une loi de Bernoulli de paramètre $q_N$. Posons $Y_N=\underset{1 \leq i \leq N }{\sum}X_i$. Les variables aléatoires $(T_i^{(N)})_{1 \leq i \leq N}$ étant indépendantes et identiquement distribuées, il en est de même pour les variables aléatoires $(X_i^{(N)})_{1 \leq i \leq N}$. On reconnait ainsi que $Y_N$ est une loi binomiale de paramètres $N$ et $q_N$. On remarque enfin que $P_{\mathbb{Q}}(S_{t_N}^{(N)}=s(1+h_N)^k(1+b_N)^{N-k})=P_{\mathbb{Q}}(Y_i=k)=C_N^k q_N^k (1-q_N)^{N-k}$. Ainsi, par le théorème de transfert :
+\newline
+\espace
+$p_{(N)}=\frac{1}{(1+r_N)^N}\mathbb{E}_{\mathbb{Q}}[f(S_{t_N}^{(N)})]=\frac{1}{(1+r_N)^N}\overset{N}{\underset{k=0}{\sum}}f(s(1+h_N)^k(1+b_N)^{N-k})P_{\mathbb{Q}}(S_{t_N}^{(N)}=s(1+h_N)^k(1+b_N)^{N-k})$
+\newline
+\espace
+Ce qui donne :
+$$\boxed{p_{(N)}=\frac{1}{(1+r_N)^N}=\overset{N}{\underset{k=0}{\sum}}f(s(1+h_N)^k(1+b_N)^{N-k})C_N^k q_N^k (1-q_N)^{N-k}}$$
+\newline
+\espace
+3) 
+\newline
+\espace
+4)
+\newline
+\espace
+5)
+\newline
+\espace
+6)
+\newline
+\espace
+7)
+\newline
+\espace
 8) Le système à la date $t_N$ vaut :
 \newline
 \vspace{0.5cm}
