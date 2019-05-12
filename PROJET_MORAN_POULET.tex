@@ -5,6 +5,7 @@
 \usepackage{bbm}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{graphicx}
 \usepackage[francais]{babel}
 \usepackage{fontspec}
 \usepackage{systeme}
@@ -36,19 +37,49 @@ Ce qui donne :
 $$\boxed{p_{(N)}=\frac{1}{(1+r_N)^N}=\overset{N}{\underset{k=0}{\sum}}f(s(1+h_N)^k(1+b_N)^{N-k})C_N^k q_N^k (1-q_N)^{N-k}}$$
 \newline
 \espace
-3) 
+3) \begin{algorithm}
+\caption{price1($N,r_N,h_N,b_N,s,f$)}
+\begin{algorithmic}
+\ENSURE $res \times sum = p_{(N)}$
+\STATE $q_N \leftarrow \frac{r_N-b_N}{h_N-b_N}$
+\STATE $res \leftarrow \frac{1}{(1+r_N)^N}$
+\STATE $sum \leftarrow 0$
+\FOR{k in 0:N}
+\STATE $sum \leftarrow sum + f(s(1+h_N)^k(1+b_N)^{(N-k)})C_N^kq_N^k(1-q_N)^{(N-k)}$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
 \newline
 \espace
-4)
+4) Voir code python.
 \newline
 \espace
-5)
+5)On sait que $\mathbb{E}_\mathbb{Q}[v_{k+1}(S_{t_{k+1}}^{(N)})|S_{t_k}^{(N)}]=v_{k+1}((1+h_N)S_{t_k}^{(N)})q_N + v_{k+1}((1+b_N)S_{t_k}^{(N)})(1-q_N)$. Ainsi :
+\begin{algorithm}
+\caption{price2($N,r_N,h_N,b_N,s,f,k$)}
+\begin{algorithmic}
+\ENSURE res = $p_{(N)}$
+\IF{$k = N$}
+\STATE $res \leftarrow f(s)$
+\ELSE
+\STATE $q_N \leftarrow \frac{r_N-b_N}{h_N-b_N}$
+\STATE $esp \leftarrow price2(N,r_N,h_N,b_N,s(1+h_N),f,k+1)q_N + price2(N,r_N,h_N,b_N,s(1+b_N),f,k+1)(1-q_N)$
+\STATE $res \leftarrow \frac{esp}{1+r_N}$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
 \newline
 \espace
 6)
 \newline
 \espace
+\includegraphics{question6tree.jpg}
+\newline
+\espace
 7)
+\newline
+\espace
+\includegraphics{question7.png}
 \newline
 \espace
 8) Le système à la date $t_N$ vaut :
@@ -90,7 +121,7 @@ $\alpha_{k-1}(S_{t_{k-1}}^{(N)})=\frac{v_k((1+h_N)S_{t_{k-1}}^{(N)})-v_k((1+b_N)
 $\beta_{k-1}(S_{t_{k-1}}^{(N)})=\frac{1}{S_{t_k}^0(h_N-b_N)}(v_k((1+b_N)S_{t_{k-1}}^{(N)}(1+h_N)-v_k((1+h_N)S_{t_{k-1}}^{(N)}(1+b_N))$
 \newline
 \vspace{0.5cm}
-10) 
+10) Voir code pyton.
 \newline
 \vspace{0.5cm}
 11) En appliquant la formule d'Ito à $ln (S_t)$, on obtient :
@@ -117,7 +148,7 @@ $$\boxed{S_t=s \exp{(\sigma B_t + (r-\frac{\sigma^2}{2})t)}}$$
 12)
 \newline
 \espace
-13)
+13) \includegraphics{question13.png}
 \newline
 \espace
 14) Posons pour $1 \leq i \leq n, X_i = e^{-rT}f(s \exp ((r-\frac{\sigma^2}{2})T + \sigma \sqrt{T} \epsilon_i)$. Pour montrer que la suite $(\hat{p}_{(n)})_{n \in \mathbb{N}}$ converge presque sûrement vers $p$, il suffit de montrer que E[$X_0$]=$p$. En effet, les $(\epsilon_i)_{1 \leq i \leq n}$ étant indépendantes et identiquement distribuées, il en de même pour les $(X_i)_{1 \leq i \leq n}$. E[$X_0$]=$p < +\infty$ permet de conclure, d'après la loi forte des grands nombres, que la suite $(\hat{p}_{(n)})_{n \in \mathbb{N}}$ converge presque sûrement vers $p$. 
@@ -128,26 +159,18 @@ Or d'après les propriétés 1 et 2 du mouvement brownien énoncées dans le suj
 15)
 \newline
 \espace
-16)
+16) Voir code python.
 \newline
 \espace
-17)
+17) \includegraphics{question17.png}
 \newline
 \espace
-18)
+18) \includegraphics{question18.png}
 \newline
 \espace
 19)
 \newline
 \espace
 20)
-
-
-
-
-
-
-
-
 
 \end{document}
