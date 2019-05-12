@@ -54,7 +54,7 @@ $$\boxed{p_{(N)}=\frac{1}{(1+r_N)^N}=\overset{N}{\underset{k=0}{\sum}}f(s(1+h_N)
 4) Voir code python.
 \newline
 \espace
-5)On sait que $\mathbb{E}_\mathbb{Q}[v_{k+1}(S_{t_{k+1}}^{(N)})|S_{t_k}^{(N)}]=v_{k+1}((1+h_N)S_{t_k}^{(N)})q_N + v_{k+1}((1+b_N)S_{t_k}^{(N)})(1-q_N)$. Ainsi :
+5)On sait que $\mathbb{E}_\mathbb{Q}[v_{k+1}(S_{t_{k+1}}^{(N)})|S_{t_k}^{(N)}]=v_{k+1}((1+h_N)S_{t_k}^{(N)})q_N + v_{k+1}((1+b_N)S_{t_k}^{(N)})(1-q_N)$. Ainsi, on appelle la fonction price2 avec $k=0$ :
 \begin{algorithm}
 \caption{price2($N,r_N,h_N,b_N,s,f,k$)}
 \begin{algorithmic}
@@ -146,6 +146,17 @@ $$\boxed{S_t=s \exp{(\sigma B_t + (r-\frac{\sigma^2}{2})t)}}$$
 \newline
 \espace
 12)
+\begin{algorithm}
+\caption{price3($n,s,r,\sigma,T,f$)}
+\begin{algorithmic}
+\ENSURE res = $\hat{p_{(n)}}$
+\STATE $sum \leftarrow 0$
+\FOR{i in 1 : n}
+\STATE $sum \leftarrow sum + exp(-rT)f(s\exp((r-\frac{sigma^2}{2})T+sigma \sqrt{T}*np.random.normal()))$
+\STATE $res \leftarrow \frac{sum}{n}$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
 \newline
 \espace
 13) \includegraphics{question13.png}
@@ -157,6 +168,15 @@ Or d'après les propriétés 1 et 2 du mouvement brownien énoncées dans le suj
 \newline
 \espace
 15)
+\begin{algorithm}
+\caption{put($s,r,\sigma,T,K$)}
+\begin{algorithmic}
+\ENSURE res = $p$
+\STATE $d \leftarrow (log(\frac{s}{K})+(r+\frac{sigma^2}{2})T)/(sigma\sqrt{T})$
+\STATE $p \leftarrow -s * norm.cdf(-d) + K\exp(-rT)*norm.cdf(-d+sigma\sqrt{T})$
+\STATE $res \leftarrow p$
+\end{algorithmic}
+\end{algorithm}
 \newline
 \espace
 16) Voir code python.
