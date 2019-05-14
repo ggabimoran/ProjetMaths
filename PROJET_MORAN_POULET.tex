@@ -188,9 +188,39 @@ Or d'après les propriétés 1 et 2 du mouvement brownien énoncées dans le suj
 18) \includegraphics{question18.png}
 \newline
 \espace
-19)
+19) \includegraphics{question19.png}
 \newline
 \espace
-20)
+20) Le prix du put $P(t,S_t)$ vérifie l'EDP définie sur $[0,T] \times [0,L]$ : 
+$$\frac{\partial P}{\partial t} + rS\frac{\partial P}{\partial S} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 P}{\partial S^2}=rP$$
+\newline
+\espace
+Les conditions sont :
+\newline
+\espace
+$P(T,s) = max(K-s,0) \forall s \in [0,L]$  \hspace{0.5cm} [01]
+
+$P(t,0) = K e^{r(t-T)} \forall t \in [0,T]$ \hspace{0.5cm} [02]
+
+$P(t,L) = 0 \forall t \in [0,T]$ \hspace{0.5cm} [03]
+
+
+Si l'on pose $N$ (resp. $M$)le nombre de points en temps (resp. espace ) à calculer, on pose $\Delta T = \frac{T}{N}$ (resp. $\Delta s = \frac{L}{M+1}$) puis $t_n = n \Delta T \forall n \in \{0,..,N\}$ (resp. $s_i = i \Delta s \forall i \in \{0,..,M+1\}$).
+
+On approche alors $P(t,S_t)$ par $P(t_n,s_i)$. On pose $\textbf{P}_n \in \mathbb{R}^M$ le vecteur colonne de composantes $(P_{n,1},..,P_{n,M})$, où $P(t_n,s_i)$ est remplacé par $P_{n,i}$ dans le cas où les approximations ci-dessous deviennent des égalités.
+
+\textbf\underline{{Schéma implicite}}
+
+Dans un schéma implicite, on a pour tout $(n,i) \in \{0,..,N-1\} \times \{1,..,M\}$ :
+$$\frac{\partial P}{\partial t}(t_n,s_i) \approx \frac{1}{\Delta T}(P(t_{n+1},s_i)-P(t_n,s_i))$$
+$$\frac{\partial P}{\partial S}(t_n,s_i) \approx \frac{1}{\Delta s}(P(t_n,s_i)-P(t_n,s_{i-1}))$$
+$$\frac{\partial^2 P}{\partial S^2}(t_n,s_i) \approx \frac{1}{\Delta s^2}(P(t_n,s_{i+1})-2P(t_n,s_i)+P(t_n,s_{i-1}))$$
+
+Posons $A_i=-\frac{1}{2} \frac{\Delta T}{\Delta s^2} \sigma^2 s_i^2$, $B_i=\Delta T (r + \frac{\sigma^2 s_i^2}{\Delta s^2}-\frac{r s_i}{\Delta s}+\frac{1}{\Delta T})$ et $C_i=\Delta T (\frac{r s_i}{\Delta s} - \frac{1}{2}\frac{\sigma^2 s_i^2}{\Delta s^2})$
+
+Dans un schéma explicite, on a pour tout $(n,i) \in \{0,..,N-1\} \times \{1,..,M\}$ :
+$$\frac{\partial P}{\partial t}(t_n,s_i) \approx \frac{1}{\Delta T}(P(t_n,s_i)-P(t_{n-1},s_i))$$
+$$\frac{\partial P}{\partial S}(t_n,s_i) \approx \frac{1}{\Delta s}(P(t_n,s_i)-P(t_n,s_{i-1}))$$
+$$\frac{\partial^2 P}{\partial S^2}(t_n,s_i) \approx \frac{1}{\Delta s^2}(P(t_n,s_{i+1})-2P(t_n,s_i)+P(t_n,s_{i-1}))$$
 
 \end{document}
